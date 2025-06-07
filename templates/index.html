@@ -32,13 +32,14 @@
         padding: 0;
         margin: 0;
         font-family: Roboto, Arial, sans-serif;
-        font-size: 14px;
-        color: #FC766AFF;
+        font-size: 16px;
+        color: #5B84B1FF
+ 
       }
       h1 {
         margin: 0 0 20px;
         font-weight: 400;
-        color: #FC766AFF;
+        color: rgb(61, 179, 133); 
       }
       label {
         margin: 0 0 0px;
@@ -64,14 +65,14 @@
         width: 50%;
         box-shadow: 0 2px 5px #f5f5f5; 
         background: #f5f5f5;
-        border: 2px solid #FC766AFF;
+        border: 2px solid rgb(61, 179, 133); 
         border-radius: 8px;
       }
       input, textarea {
         width: calc(50% - 18px);
         padding: 8px;
         margin-bottom: 20px;
-        border: 2px solid #FC766AFF;
+        border: 2px solid rgb(165, 54, 128); 
         border-radius: 4px;
         outline: none;
       }
@@ -86,7 +87,7 @@
         padding: 10px;
         border: none;
         border-radius: 8px;
-        background: #FC766AFF; 
+        background: rgb(61, 179, 133); 
         font-size: 16px;
         font-weight: 400;
         color: #fff;
@@ -107,7 +108,7 @@
         visibility: visible;
         margin-top: 20px;
         width: 90%;
-        border: 2px solid #FC766AFF;
+        border: 2px solid rgb(61, 179, 133); 
         border-radius: 5px;
         box-shadow: 0 2px 5px #f5f5f5;
         text-align: center;
@@ -125,7 +126,7 @@
         text-align: left;
       }
       .table th {
-        background-color: #FC766AFF;
+        background-color: #5B84B1FF;
         color: white;
       }
     </style>
@@ -143,14 +144,18 @@
           <p><i>Note: This model is 97% accurate</i></p>
           <div class="info">
             <p><b>Please Enter values for the following:</b></p><br>
-            <label>Enter Your GRE Score:</label><br><br>
-            <input type="number" name="GRE Score" placeholder="GRE score" required>
-            
-            <label>Enter Your TOEFL Score:</label><br><br>
-            <input type="number" name="TOEFL Score" placeholder="TOEFL Score" required>
-            
-            <label>Enter Your CGPA:</label><br><br>
-            <input type="number" name="CGPA" step="0.01" placeholder="CGPA" required>
+            <label>Enter Your GRE Score: (out of 340)</label><br><br>
+            <input type="number" name="GRE Score" placeholder="GRE score" required
+              value="{{ gre_score if gre_score is defined else '' }}">
+
+            <label>Enter Your TOEFL Score: (out of 120)</label><br><br>
+            <input type="number" name="TOEFL Score" placeholder="TOEFL Score" required
+             value="{{ toefl_score if toefl_score is defined else '' }}">
+
+            <label>Enter Your CGPA: (out of 10)</label><br><br>
+            <input type="number" name="CGPA" step="0.01" placeholder="CGPA" required
+              value="{{ cgpa if cgpa is defined else '' }}">
+
           </div>
           <center><button type="submit" value="predict">Predict</button></center>
         </section>

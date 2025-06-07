@@ -47,7 +47,16 @@ def predict():
         result += low_chance_universities.to_html(index=False, classes='table table-striped')
         # result = "Unfortunately, you do not have a high chance of admission."
 
-    return render_template('index.html', result=result)
+    # return render_template('index.html', result=result)
+
+    return render_template(
+    'index.html',
+    result=result,
+    gre_score=GRE_Score,
+    toefl_score=TOEFL_Score,
+    cgpa=CGPA
+)
+
 
 if __name__ == "__main__":
     app.run(debug=True)
