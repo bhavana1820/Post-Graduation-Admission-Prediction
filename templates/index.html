@@ -1,169 +1,207 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Post Graduation Admission Prediction</title>
-    <style>
-      ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        background-color: #333;
-      }
-      
-      li {
-        float: right;
-      }
-      
-      li a {
-        display: block;
-        color: white;
-        text-align: center;
-        padding: 18px 20px;
-        text-decoration: none;
-      }
-      
-      li a:hover {
-        background-color: #111;
-      }
 
-      html, body {
-        min-height: 100%;
-        padding: 0;
-        margin: 0;
-        font-family: Roboto, Arial, sans-serif;
-        font-size: 16px;
-        color: #5B84B1FF
- 
-      }
-      h1 {
-        margin: 0 0 20px;
-        font-weight: 400;
-        color: rgb(61, 179, 133); 
-      }
-      label {
-        margin: 0 0 0px;
-        font-weight: 50;
-        color: #5B84B1FF;
-        font-size: 18px;
-      }
-      p {
-        margin: 0 0 5px;
-      }
+<head>
+  <title>Post Graduation Admission Prediction</title>
+  <style>
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #333;
+    }
+
+    li {
+      float: right;
+    }
+
+    li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 18px 20px;
+      text-decoration: none;
+    }
+
+    li a:hover {
+      background-color: #111;
+    }
+
+    html,
+    body {
+      min-height: 100%;
+      padding: 0;
+      margin: 0;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 16px;
+      color: #5B84B1FF
+    }
+
+    h1 {
+      margin: 0 0 20px;
+      font-weight: 400;
+      color: rgb(61, 179, 133);
+    }
+
+    label {
+      margin: 0 0 0px;
+      font-weight: 50;
+      color: #5B84B1FF;
+      font-size: 18px;
+    }
+
+    p {
+      margin: 0 0 5px;
+    }
+
+    .main-block {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 75vh;
+      background-image: url("static/img/background_image.jpg");
+      background-size: cover;
+
+      background-repeat: no-repeat;
+      background-attachment: fixed; 
+      overflow: hidden;
+      
+    }
+
+    form {
+      padding: 25px;
+      margin: 25px;
+      width: 50%;
+      box-shadow: 0 2px 5px #f5f5f5;
+      background: #f5f5f5;
+      border: 2px solid rgb(61, 179, 133);
+      border-radius: 8px;
+    }
+
+    input,
+    textarea {
+      width: calc(50% - 18px);
+      padding: 8px;
+      margin-bottom: 20px;
+      border: 2px solid rgb(165, 54, 128);
+      border-radius: 4px;
+      outline: none;
+    }
+
+    input::placeholder {
+      color: #666;
+    }
+
+    input {
+      display: block;
+    }
+
+    button {
+      width: 50%;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      background: rgb(61, 179, 133);
+      font-size: 16px;
+      font-weight: 400;
+      color: #fff;
+    }
+
+    button:hover {
+      background: #5B84B1FF;
+    }
+
+    @media screen and (max-width: 600px) {
       .main-block {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        min-height: 75vh;
-        background-image: url("static/img/background image.jpg");
-        background-size: cover; /* Resize the background image to cover the entire container */
+        flex-direction: row;
       }
-      form {
-        padding: 25px;
-        margin: 25px;
-        width: 50%;
-        box-shadow: 0 2px 5px #f5f5f5; 
-        background: #f5f5f5;
-        border: 2px solid rgb(61, 179, 133); 
-        border-radius: 8px;
-      }
-      input, textarea {
-        width: calc(50% - 18px);
-        padding: 8px;
-        margin-bottom: 20px;
-        border: 2px solid rgb(165, 54, 128); 
-        border-radius: 4px;
-        outline: none;
-      }
-      input::placeholder {
-        color: #666;
-      }
-      input {
-        display: block;
-      }
-      button {
-        width: 50%;
-        padding: 10px;
-        border: none;
-        border-radius: 8px;
-        background: rgb(61, 179, 133); 
-        font-size: 16px;
-        font-weight: 400;
-        color: #fff;
-      }
-      button:hover {
-        background: #5B84B1FF;
-      }   
-      @media screen and (max-width: 600px) {
-        .main-block {
-          flex-direction: row;
-        }
-      }
-      .left-part, form {
-        width: 50%;
-      }
-      .result {
-        position: relative;
-        visibility: visible;
-        margin-top: 20px;
-        width: 90%;
-        border: 2px solid rgb(61, 179, 133); 
-        border-radius: 5px;
-        box-shadow: 0 2px 5px #f5f5f5;
-        text-align: center;
-        background: #fff;
-        padding: 15px;
-      }
-      .table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 15px;
-      }
-      .table th, .table td {
-        border: 1px solid #ddd;
-        padding: 8px;
-        text-align: left;
-      }
-      .table th {
-        background-color: #5B84B1FF;
-        color: white;
-      }
-    </style>
-  </head>
-  <body>
-    <ul>
-      <li><a class="active" href="mailto:prasad0642@gmail.com">Contact</a></li>
-      <li><a href="#home">Home</a></li>
-    </ul>
-    <div class="main-block">
-      <form action="{{ url_for('predict') }}" method="post">
-        <section>
-          <center><h1><b>Post Graduation Admission Prediction</b></h1></center>
-          <p>This Web Application is powered by a Machine Learning Algorithm to predict the individual's chance of admission for post-graduation.</p>
-          <p><i>Note: This model is 97% accurate</i></p>
-          <div class="info">
-            <p><b>Please Enter values for the following:</b></p><br>
-            <label>Enter Your GRE Score: (out of 340)</label><br><br>
-            <input type="number" name="GRE Score" placeholder="GRE score" required
-              value="{{ gre_score if gre_score is defined else '' }}">
+    }
 
-            <label>Enter Your TOEFL Score: (out of 120)</label><br><br>
-            <input type="number" name="TOEFL Score" placeholder="TOEFL Score" required
-             value="{{ toefl_score if toefl_score is defined else '' }}">
+    .left-part,
+    form {
+      width: 50%;
+    }
 
-            <label>Enter Your CGPA: (out of 10)</label><br><br>
-            <input type="number" name="CGPA" step="0.01" placeholder="CGPA" required
-              value="{{ cgpa if cgpa is defined else '' }}">
+    .result {
+      position: relative;
+      visibility: visible;
+      margin-top: 20px;
+      width: 90%;
+      border: 2px solid rgb(61, 179, 133);
+      border-radius: 5px;
+      box-shadow: 0 2px 5px #f5f5f5;
+      text-align: center;
+      background: #fff;
+      padding: 15px;
+    }
 
-          </div>
-          <center><button type="submit" value="predict">Predict</button></center>
-        </section>
-      </form>
-      <div class="result">
-        <h2>Result</h2>
-        <div>{{ result | safe }}</div>
-      </div>
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+
+    .table th,
+    .table td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+
+    .table th {
+      background-color: #5B84B1FF;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <ul>
+    <li><a class="active" href="mailto:">Contact</a></li>
+    <li><a href="#home">Home</a></li>
+  </ul>
+  <div class="main-block">
+    <form action="{{ url_for('predict') }}" method="post">
+      <section>
+        <center>
+          <h1><b>Post Graduation Admission Prediction</b></h1>
+        </center>
+        <p>This Web Application is powered by a Machine Learning Algorithm to predict the individual's chance of
+          admission for post-graduation.</p>
+          <br>
+        <!-- <p><i>Note: This model is 97% accurate</i></p> -->
+        <div class="info">
+          <p><b>Please Enter values for the following:</b></p><br> 
+          
+          <label>Enter Your GRE Score: (out of 340)</label><br><br> 
+            <input type="number" name="GRE Score" placeholder="GRE score" required min="0"
+            max="340" value="{{ gre_score if gre_score is defined else '' }}"> 
+            
+
+            <label>Enter Your TOEFL Score: (out of 120)</label><br><br> 
+            <input type="number" name="TOEFL Score" placeholder="TOEFL Score" required min="0"
+            max="120" value="{{ toefl_score if toefl_score is defined else '' }}"> 
+            
+
+            <label>Enter Your CGPA: (out of 10)</label><br><br> 
+            <input type="number" name="CGPA" step="0.01" placeholder="CGPA" required min="0"
+            max="10" value="{{ cgpa if cgpa is defined else '' }}">
+        </div>
+        <center><button type="submit" value="predict">Predict</button>
+        <a href="/" style="text-decoration:none;">
+          <button type="button" style="margin-top:10px; background:#999;">Reset</button>
+        </a>
+        
+        </center>
+      </section>
+    </form>
+    <div class="result">
+      <h2>Result</h2>
+      <div>{{ result | safe }}</div>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>
